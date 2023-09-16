@@ -2,7 +2,7 @@ import { auth } from "./auth.js";
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-const getUrl = `https://api.noroff.dev/api/v1/social/posts/${id}`;
+const getUrl = `https://api.noroff.dev/api/v1/social/posts/${id}?_author=true`;
 
 const detailPost = document.getElementById("detailPost");
 const editablePostHeader = document.getElementById("postHeading");
@@ -29,6 +29,7 @@ async function getPost() {
     const response = await fetch(getUrl, getPostOptions);
     const result = await response.json();
     var media = result.media;
+    const { title, body, author } = result;
     if (media === null) {
       media = "";
     } else {
@@ -37,13 +38,14 @@ async function getPost() {
     detailPost.innerHTML += `
       <div class="col py-2">
           <div class="card p-3 rounded-0">
-            <h3 class="card-title">${result.title}</h3>
+            <h3 class="card-title">${title}</h3>
+            <p class="card-text">Author: ${author.name}</p>
             <p class="card-text">
-            ${result.body}
+            ${body}
             </p>
             <img
               src="${media}"
-              class="card-img-top rounded-0"
+              class="card-img-top rounded-0 media"
               alt=""
             />
           </div>

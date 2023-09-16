@@ -1,5 +1,5 @@
 import { auth } from "./auth.js";
-const getUrl = "https://api.noroff.dev/api/v1/social/posts";
+const getUrl = "https://api.noroff.dev/api/v1/social/posts?_author=true";
 
 const feedPosts = document.getElementById("feedPosts");
 
@@ -22,7 +22,7 @@ async function getPosts() {
     console.log(result);
     for (let i = 0; i < 30; i++) {
       var media = result[i].media;
-      const { id, title, body } = result[i];
+      const { id, title, body, author } = result[i];
       if (media === null) {
         media = "";
       } else {
@@ -33,6 +33,7 @@ async function getPosts() {
       <a href="postDetails.html?id=${id}" class="text-decoration-none text-reset">
           <div class="card p-3 rounded-0">
             <h3 class="card-title">${title}</h3>
+            <p class="card-text">${author.name}</p>
             <p class="card-text">
             ${body}
             </p>
