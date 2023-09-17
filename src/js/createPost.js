@@ -12,7 +12,18 @@ console.log(postFile);
 /**
  * Create a post with API POST request
  *
- * Input from creat form
+ * Input from creat form.
+ *
+ * Function runs when submiting form.
+ *
+ *  @example
+ * * ```js
+ * // From submit form
+ * title
+ * body
+ * media
+ * // method post with autorization header
+ * ```
  */
 async function createPosts(event) {
   event.preventDefault();

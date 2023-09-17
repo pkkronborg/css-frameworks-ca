@@ -3,11 +3,12 @@ const filter = document.getElementById("filter");
 filter.addEventListener("change", filterChange);
 
 /**
- * Filter posts by select from html
+ * Filter posts by select from html.
  *
- * All posts showing all posts
+ * All posts showing all posts.
  *
- * Only media posts filters to show just posts with media files
+ * Only media posts filters to show just posts with media files.
+ *
  */
 function filterChange() {
   const postContainers = document.querySelectorAll(".posts");

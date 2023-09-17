@@ -10,8 +10,9 @@ const editablePostText = document.getElementById("postText");
 const editablePostFile = document.getElementById("file");
 
 /**
- * Get post with use of post id
- * Creates a post details page with card from the specific post
+ * Get post with use of post id.
+ *
+ * Creates a post details page with card from the specific post.
  *
  * It also fill up the edit fields with info for the specific post
  *

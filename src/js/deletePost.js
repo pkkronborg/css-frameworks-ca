@@ -6,7 +6,9 @@ const deleteUrl = `https://api.noroff.dev/api/v1/social/posts/${postId}`;
 const deleteButton = document.getElementById("deletePost");
 const deleteError = document.getElementById("deleteError");
 /**
- * Delete a post with a API Delete request
+ * Delete a post with a API Delete request.
+ *
+ * Headers needed autorization and post ID.
  *
  */
 async function deletePost(event) {

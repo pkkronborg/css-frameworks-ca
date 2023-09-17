@@ -3,7 +3,7 @@ const searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", search);
 
 /**
- * Text search thorug posts.
+ * Text search throug posts.
  *
  * Searching throug body and title.
  *

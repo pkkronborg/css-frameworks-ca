@@ -4,9 +4,9 @@ const getUrl = "https://api.noroff.dev/api/v1/social/posts?_author=true";
 const feedPosts = document.getElementById("feedPosts");
 
 /**
- * Get posts from API
+ * Get posts from API.
  *
- * Creating html cards for the posts
+ * Creating html cards for each posts.
  */
 async function getPosts() {
   try {

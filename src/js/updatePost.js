@@ -11,8 +11,19 @@ const postFile = document.getElementById("file");
 const editError = document.getElementById("editError");
 
 /**
- * Update a post with a API PUT request
+ * Update a post with a API PUT request.
  *
+ * The function is run when submiting the form
+ *
+ *
+ *  @example
+ * ```js
+ * // From submit form
+ * title
+ * body
+ * media
+ * // method put with authorzation and id headers
+ * ```
  */
 async function updatePost(event) {
   event.preventDefault();

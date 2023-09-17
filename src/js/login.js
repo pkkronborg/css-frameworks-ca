@@ -8,11 +8,11 @@ const loginUrl = "https://api.noroff.dev/api/v1/social/auth/login";
 const loginError = document.getElementById("loginError");
 
 /**
- * Login a user with API POST request
+ * Login a user with API POST request.
  *
- * Stores username and token in local storage
+ * Stores username and token in local storage.
  *
- * If login successfull navigates user to feed page
+ * If login successfull navigates user to feed page.
  */
 async function loginUser(event) {
   event.preventDefault();
