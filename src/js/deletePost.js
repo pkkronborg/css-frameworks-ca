@@ -8,7 +8,7 @@ const deleteError = document.getElementById("deleteError");
 /**
  * Delete a post with a API Delete request.
  *
- * Headers needed autorization and post ID.
+ * Headers need autorization and post ID.
  *
  */
 async function deletePost(event) {
@@ -24,8 +24,6 @@ async function deletePost(event) {
     };
     const response = await fetch(deleteUrl, deletePostOptions);
     const json = await response.json();
-    console.log("Delete post", response);
-    console.log(json);
     if (response.ok === true) {
       window.location.href = "index.html";
     } else {
@@ -35,7 +33,7 @@ async function deletePost(event) {
       }, 5000);
     }
   } catch (error) {
-    console.log(error.message);
+    deleteError.innerHTML = `Something went wrong, ${error}`;
   }
 }
 

@@ -3,9 +3,7 @@ const registerUrl = "https://api.noroff.dev/api/v1/social/auth/register";
 const registerUsername = document.getElementById("username");
 
 const registerEmail = document.getElementById("email");
-console.log("email", registerEmail);
 const registerPassword = document.getElementById("password2");
-console.log("password", registerPassword);
 
 const registerForm = document.getElementById("registerForm");
 const registerError = document.getElementById("registerError");
@@ -37,7 +35,6 @@ async function registerUser(event) {
   try {
     const registerResponse = await fetch(registerUrl, postData);
     const json = await registerResponse.json();
-    console.log("json", json);
     if (registerResponse.ok === true) {
       window.location.reload();
     } else {
@@ -47,7 +44,7 @@ async function registerUser(event) {
       }, 5000);
     }
   } catch (error) {
-    console.log("Dette et feil", error);
+    registerError.innerHTML = `Something went wrong, ${error}`;
   }
 }
 

@@ -43,9 +43,7 @@ async function updatePost(event) {
   };
   try {
     const response = await fetch(updateUrl, postOptions);
-    console.log(response);
     const json = await response.json();
-    console.log("json", json);
     if (response.ok === true) {
       window.location.reload();
     } else {
@@ -55,7 +53,7 @@ async function updatePost(event) {
       }, 5000);
     }
   } catch (error) {
-    console.log("dette er error:", error);
+    editError.innerHTML = `Something went wrong, ${error}`;
   }
 }
 

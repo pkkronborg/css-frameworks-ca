@@ -29,13 +29,8 @@ async function getPost() {
     };
     const response = await fetch(getUrl, getPostOptions);
     const result = await response.json();
-    var media = result.media;
-    const { title, body, author } = result;
-    if (media === null) {
-      media = "";
-    } else {
-      media = result.media;
-    }
+    const { title, body, author, media } = result;
+    const postMedia = media || "";
     detailPost.innerHTML += `
       <div class="col py-2">
           <div class="card p-3 rounded-0">
@@ -45,7 +40,7 @@ async function getPost() {
             ${body}
             </p>
             <img
-              src="${media}"
+              src="${postMedia}"
               class="card-img-top rounded-0 media"
               alt=""
             />
@@ -56,7 +51,7 @@ async function getPost() {
     editablePostText.value = result.body;
     editablePostFile.value = media;
   } catch (error) {
-    console.log(error);
+    detailPost.innerHTML = `Something went wrong, ${error}`;
   }
 }
 

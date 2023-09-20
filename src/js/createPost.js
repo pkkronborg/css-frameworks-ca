@@ -3,11 +3,9 @@ const postUrl = "https://api.noroff.dev/api/v1/social/posts";
 
 const createForm = document.getElementById("createForm");
 const postHeader = document.getElementById("postHeading");
-console.log(postHeader);
 const postText = document.getElementById("postText");
-console.log(postText);
 const postFile = document.getElementById("file");
-console.log(postFile);
+const createError = document.getElementById("createError");
 
 /**
  * Create a post with API POST request
@@ -32,7 +30,6 @@ async function createPosts(event) {
     body: postText.value,
     media: postFile.value,
   };
-  console.log(postFile.value);
   const postOptions = {
     method: "POST",
     body: JSON.stringify(postData),
@@ -43,12 +40,17 @@ async function createPosts(event) {
   };
   try {
     const response = await fetch(postUrl, postOptions);
-    console.log(response);
     const json = await response.json();
-    console.log(json);
-    window.location.reload();
+    if (response.ok === true) {
+      window.location.reload();
+    } else {
+      createError.innerHTML = `${json.errors[0].message}`;
+      setTimeout(function () {
+        createError.innerHTML = "";
+      }, 5000);
+    }
   } catch (error) {
-    console.log(error);
+    createError.innerHTML = `Something went wrong, ${error}`;
   }
 }
 

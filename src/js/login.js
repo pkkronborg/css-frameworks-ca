@@ -1,7 +1,5 @@
 const loginEmail = document.getElementById("mail");
-console.log(loginEmail);
 const loginPassword = document.getElementById("password");
-console.log(loginPassword);
 
 const loginForm = document.getElementById("login");
 const loginUrl = "https://api.noroff.dev/api/v1/social/auth/login";
@@ -47,8 +45,7 @@ async function loginUser(event) {
       }, 5000);
     }
   } catch (error) {
-    console.log(error);
-    console.log("failed");
+    loginError.innerHTML = `Something went wrong, ${error}`;
   }
 }
 
