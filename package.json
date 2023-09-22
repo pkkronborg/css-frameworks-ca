@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"We will learn more about testing in the Workflow course\" && exit 1",
     "build": "sass src/scss:dist/css",
-    "watch": "sass --watch src/scss:dist/css & live-server"
+    "watch": "sass --watch src/scss:dist/css & live-server",
+    "docs": "jsdoc -c ./conf.json -r"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "bootstrap": "^5.2.3"
   },
   "devDependencies": {
+    "jsdoc": "^4.0.2",
     "live-server": "^1.2.2",
     "sass": "^1.62.0"
   }
